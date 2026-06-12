@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe de desvío — Constructora Vista Andes · Mayo 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; color-adjust: exact; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; box-sizing: border-box; }
+
+  :root {
+    --primary: #1F2937;
+    --bg:      #FAF7F2;
+    --accent:  #1E3A8A;
+    --muted:   #64748B;
+    --border:  #E5E7EB;
+    --desf:    #9B2C2C;
+    --card:    #FFFFFF;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--primary);
+    line-height: 1.65;
+    margin: 0;
+    padding: 56px 24px;
+    font-size: 15px;
+  }
+  .sheet { max-width: 720px; margin: 0 auto; }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--accent);
+    margin: 0 0 10px 0;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600; font-size: 42px; line-height: 1.1;
+    margin: 0 0 6px 0; color: var(--primary);
+  }
+  .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 21px; color: var(--muted);
+    margin: 0 0 18px 0;
+  }
+  .accent-bar { height: 3px; width: 48px; background: var(--accent); border-radius: 2px; margin: 0 0 22px 0; }
+  .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px; color: var(--muted);
+    letter-spacing: 0.02em; margin: 0 0 40px 0;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600; font-size: 27px; line-height: 1.2;
+    margin: 0 0 14px 0; color: var(--primary);
+  }
+  section { margin: 0 0 40px 0; }
+  hr.div { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  .titular {
+    background: var(--card);
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    border-radius: 8px;
+    font-size: 17px; line-height: 1.55;
+    margin: 0 0 40px 0;
+  }
+  .titular strong { color: var(--accent); }
+
+  p { margin: 0 0 14px 0; }
+  .lead { font-size: 15.5px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 8px 0 0 0; }
+  th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--muted); text-align: right; padding: 0 0 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  th.l { text-align: left; }
+  td { padding: 7px 0; border-bottom: 1px solid var(--border); text-align: right; }
+  td.l { text-align: left; }
+  td.num { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; }
+  tr.subtotal td { font-weight: 600; border-top: 1.5px solid var(--primary); border-bottom: none; }
+  tr.subtotal td.l { font-family: 'Inter', sans-serif; }
+  .desf { color: var(--desf); }
+  .fav  { color: var(--accent); }
+  .flag { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.02em; }
+  .flag .m { color: var(--desf); }
+
+  .callout {
+    background: #F1EFE8;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px 24px;
+  }
+  .callout h2 { margin-top: 0; }
+  .verdict-line { display: flex; gap: 14px; margin: 0 0 12px 0; align-items: baseline; }
+  .verdict-line .amt { font-family: 'JetBrains Mono', monospace; font-weight: 500; min-width: 92px; }
+  .verdict-line .amt.t { color: var(--accent); }
+  .verdict-line .amt.s { color: var(--desf); }
+
+  ul.actions { list-style: none; padding: 0; margin: 0; }
+  ul.actions li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+  ul.actions li:last-child { border-bottom: none; }
+  ul.actions .who { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.04em; }
+
+  .ytd { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .ytd .stat { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; }
+  .ytd .stat .k { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 6px 0; }
+  .ytd .stat .v { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; line-height: 1; }
+  .ytd .stat .d { font-size: 12.5px; color: var(--muted); margin: 6px 0 0 0; }
+
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--border); }
+  footer .wm { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 500; color: var(--primary); }
+  footer .note { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted); margin: 4px 0 0 0; }
+
+  @media (max-width: 640px) {
+    body { padding: 32px 16px; }
+    h1 { font-size: 32px; }
+    .ytd { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <p class="eyebrow">Cierre de gestión · Mayo 2026</p>
+  <h1>Constructora Vista Andes</h1>
+  <p class="subtitle">Informe de desvío presupuestario</p>
+  <div class="accent-bar"></div>
+  <p class="meta">CIFRAS EN MM$ (MILLONES DE CLP) &nbsp;·&nbsp; PRESUPUESTO APROBADO POR EL DIRECTORIO &nbsp;·&nbsp; UMBRAL DE MATERIALIDAD ±10% O MM$ 25</p>
+
+  <div class="titular">
+    El mes cerró <strong>MM$ 407 bajo presupuesto</strong> (resultado MM$ −40 vs MM$ +367 presupuestado),
+    pero <strong>el 92% del desvío es timing</strong>: una escrituración del Edificio Los Robles se corrió a junio.
+    La venta está cerrada — es calendario, no pérdida.
+  </div>
+
+  <section>
+    <h2>Resumen ejecutivo</h2>
+    <p class="lead">Mayo es el primer mes del año en rojo. El resultado cayó MM$ 407 contra presupuesto y casi todo
+    —MM$ 374, el 92%— viene de <strong>menos ingreso</strong>, no de gastar de más. Y el desvío de ingreso es
+    <strong>íntegramente volumen</strong>: se escrituraron 4 departamentos en vez de 5 porque una unidad de Los Robles
+    pasó a junio por un retraso de recepción municipal. El precio jugó a favor (+MM$ 41: ambos proyectos vendieron
+    sobre lista). Los costos del mes se pasaron solo MM$ 33 netos — contenido.</p>
+    <p class="lead"><strong>Sacando el corrimiento de la escrituración, el mes está en línea con presupuesto.</strong>
+    Lo que sí hay que gestionar es estructural y acotado: inflación de materiales, un sobregasto de marketing puntual,
+    y mayor gasto financiero.</p>
+  </section>
+
+  <hr class="div">
+
+  <section>
+    <h2>El número del mes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th class="l">Línea</th>
+          <th>Ppto</th>
+          <th>Real</th>
+          <th>Desvío</th>
+          <th>%</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="l">Ingresos por venta de unidades</td>
+          <td class="num">1.850</td><td class="num">1.476</td>
+          <td class="num desf">−374</td><td class="num desf">−20,2%</td>
+          <td class="flag">▼ <span class="m">material</span></td>
+        </tr>
+        <tr>
+          <td class="l">Materiales</td>
+          <td class="num">520</td><td class="num">548</td>
+          <td class="num desf">+28</td><td class="num desf">+5,4%</td>
+          <td class="flag">▼ <span class="m">material</span></td>
+        </tr>
+        <tr>
+          <td class="l">Subcontratos</td>
+          <td class="num">410</td><td class="num">392</td>
+          <td class="num fav">−18</td><td class="num fav">−4,4%</td>
+          <td class="flag">▲ fav</td>
+        </tr>
+        <tr>
+          <td class="l">Mano de obra directa</td>
+          <td class="num">290</td><td class="num">281</td>
+          <td class="num fav">−9</td><td class="num fav">−3,1%</td>
+          <td class="flag">▲ fav</td>
+        </tr>
+        <tr class="subtotal">
+          <td class="l">Margen Bruto</td>
+          <td class="num">630</td><td class="num">255</td>
+          <td class="num desf">−375</td><td class="num desf">−59,5%</td>
+          <td class="flag">▼ <span class="m">material</span></td>
+        </tr>
+        <tr>
+          <td class="l">Remuneraciones administración</td>
+          <td class="num">95</td><td class="num">89</td>
+          <td class="num fav">−6</td><td class="num fav">−6,3%</td>
+          <td class="flag">▲ fav</td>
+        </tr>
+        <tr>
+          <td class="l">Marketing y ventas</td>
+          <td class="num">60</td><td class="num">81</td>
+          <td class="num desf">+21</td><td class="num desf">+35,0%</td>
+          <td class="flag">▼ <span class="m">material</span></td>
+        </tr>
+        <tr>
+          <td class="l">Gastos generales</td>
+          <td class="num">48</td><td class="num">51</td>
+          <td class="num desf">+3</td><td class="num desf">+6,2%</td>
+          <td class="flag">▼ desf</td>
+        </tr>
+        <tr class="subtotal">
+          <td class="l">EBITDA</td>
+          <td class="num">427</td><td class="num">34</td>
+          <td class="num desf">−393</td><td class="num desf">−92,0%</td>
+          <td class="flag">▼ <span class="m">material</span></td>
+        </tr>
+        <tr>
+          <td class="l">Gastos financieros</td>
+          <td class="num">38</td><td class="num">52</td>
+          <td class="num desf">+14</td><td class="num desf">+36,8%</td>
+          <td class="flag">▼ <span class="m">material</span></td>
+        </tr>
+        <tr>
+          <td class="l">Depreciación</td>
+          <td class="num">22</td><td class="num">22</td>
+          <td class="num">0</td><td class="num">0,0%</td>
+          <td class="flag">—</td>
+        </tr>
+        <tr class="subtotal">
+          <td class="l">Resultado antes de impuesto</td>
+          <td class="num">367</td><td class="num desf">−40</td>
+          <td class="num desf">−407</td><td class="num desf">−110,9%</td>
+          <td class="flag">▼ <span class="m">material</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:14px;">Margen bruto: 34,1% → 17,3%. Los subtotales recalculan exacto contra la planilla.</p>
+  </section>
+
+  <hr class="div">
+
+  <section>
+    <h2>De dónde viene el desvío</h2>
+    <p>Resultado Δ <span class="desf" style="font-family:'JetBrains Mono',monospace;">−407</span>
+    = Ingresos Δ <span class="desf" style="font-family:'JetBrains Mono',monospace;">−374</span>
+    + mayor costo neto <span class="desf" style="font-family:'JetBrains Mono',monospace;">−33</span>.</p>
+
+    <p style="margin-top:22px;"><strong>Ingresos (−374) — descompuesto en volumen y precio:</strong></p>
+    <table>
+      <thead>
+        <tr><th class="l">Proyecto</th><th>Volumen</th><th>Precio</th><th>Total</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="l">Edificio Mirador · Ñuñoa</td><td class="num">0</td><td class="num fav">+36</td><td class="num fav">+36</td></tr>
+        <tr><td class="l">Edificio Los Robles · La Florida</td><td class="num desf">−415</td><td class="num fav">+5</td><td class="num desf">−410</td></tr>
+        <tr class="subtotal"><td class="l">Total ingreso</td><td class="num desf">−415</td><td class="num fav">+41</td><td class="num desf">−374</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13.5px;margin-top:12px;">El 100% del desvío de ingreso es <strong>volumen</strong>: una unidad de Los Robles que no se escrituró en mayo (−MM$ 415). El precio fue favorable en ambos proyectos (+MM$ 41).</p>
+
+    <p style="margin-top:22px;"><strong>Mayor costo neto (−33), ordenado por impacto:</strong></p>
+    <table>
+      <thead>
+        <tr><th class="l">Driver</th><th>Desvío</th><th class="l" style="padding-left:20px;">Tipo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="l">Materiales (acero / cemento)</td><td class="num desf">+28</td><td class="l" style="padding-left:20px;">Estructural</td></tr>
+        <tr><td class="l">Marketing y ventas</td><td class="num desf">+21</td><td class="l" style="padding-left:20px;">Estructural</td></tr>
+        <tr><td class="l">Gastos financieros</td><td class="num desf">+14</td><td class="l" style="padding-left:20px;">Estructural</td></tr>
+        <tr><td class="l">Gastos generales</td><td class="num desf">+3</td><td class="l" style="padding-left:20px;">—</td></tr>
+        <tr><td class="l">Subcontratos</td><td class="num fav">−18</td><td class="l" style="padding-left:20px;">Volumen</td></tr>
+        <tr><td class="l">Mano de obra directa</td><td class="num fav">−9</td><td class="l" style="padding-left:20px;">Volumen</td></tr>
+        <tr><td class="l">Remuneraciones administración</td><td class="num fav">−6</td><td class="l" style="padding-left:20px;">Timing</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="div">
+
+  <section class="callout">
+    <h2>Timing vs estructural — el veredicto</h2>
+    <div class="verdict-line">
+      <span class="amt t">≈ MM$ 415</span>
+      <span><strong>Timing</strong> — se revierte solo en junio. La escrituración corrida de Los Robles; promesa firmada, la venta no se perdió. <em>No genera acción correctiva, genera seguimiento.</em></span>
+    </div>
+    <div class="verdict-line">
+      <span class="amt s">≈ MM$ 63</span>
+      <span><strong>Estructural</strong> — hay que gestionarlo: materiales (+28), marketing (+21), gasto financiero (+14). Acotado y conocido.</span>
+    </div>
+    <p style="margin:14px 0 0 0;"><strong>Si la escrituración de Los Robles hubiera caído en mayo, el mes cerraba en línea con presupuesto.</strong>
+    El rojo del mes es calendario. Lo que merece gestión son los MM$ 63 estructurales — chicos, pero los que se quedan si no se actúa.</p>
+  </section>
+
+  <section>
+    <h2>Acciones sugeridas</h2>
+    <ul class="actions">
+      <li>
+        <strong>Confirmar la escrituración de Los Robles en junio.</strong> No es acción correctiva, es el seguimiento que cierra el timing.
+        <div class="who">Gerencia Comercial</div>
+      </li>
+      <li>
+        <strong>Materiales (+28, estructural):</strong> cerrar precio de acero y cemento con contrato a plazo para las compras del 2º semestre. El alza viene sostenida desde marzo y ya pesa MM$ 110 en el acumulado del año.
+        <div class="who">Operaciones / Adquisiciones</div>
+      </li>
+      <li>
+        <strong>Marketing (+21, estructural):</strong> medir el retorno de la campaña adicional de Los Robles contra unidades efectivamente colocadas antes de renovarla.
+        <div class="who">Gerencia Comercial</div>
+      </li>
+      <li>
+        <strong>Gasto financiero (+14, estructural):</strong> revisar el calendario de giros de la línea de capital de trabajo frente al flujo real de escrituraciones para no financiar más de lo necesario.
+        <div class="who">Finanzas</div>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="div">
+
+  <section>
+    <h2>El año · enero–mayo (YTD)</h2>
+    <div class="ytd">
+      <div class="stat">
+        <p class="k">Resultado acumulado</p>
+        <p class="v desf">MM$ 1.143</p>
+        <p class="d">vs ppto MM$ 1.475 · −22%</p>
+      </div>
+      <div class="stat">
+        <p class="k">Margen bruto YTD</p>
+        <p class="v">34,0% → 31,4%</p>
+        <p class="d">presionado por materiales (+MM$ 110 acum.)</p>
+      </div>
+    </div>
+    <p style="margin-top:18px;">El año sigue rentable; mayo es el primer mes en rojo y es de timing. El tema estructural persistente del año es <strong>materiales</strong> (+MM$ 110 acumulado): es el que conviene atacar con contrato a plazo.</p>
+  </section>
+
+  <footer>
+    <div class="wm">Gavin Templeton</div>
+    <p class="note">GENERADO POR EL SKILL variance-briefing · MOTOR 1 (REAL VS COMPROMETIDO) · DATOS DE EJEMPLO</p>
+  </footer>
+
+</div>
+</body>
+</html>
